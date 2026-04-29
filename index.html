@@ -21,7 +21,7 @@
                 <li><a href="#research" class="nav-link">Research</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#team" class="nav-link">Team</a></li>
-                <li><a href="#apply" class="nav-link btn-apply">Apply</a></li>
+                <li><a href="#apply" class="nav-link btn-apply">Contact us</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -90,6 +90,18 @@
                     <p>Common across all projects, we are experts in analysing biological models which are deep molecularly and phenotypic characterised, which ultimately enables precision medicine. In essence, our research vision is to establish a Translational Computational Pharmacogenomics programme in cancer and beyond, in order to accelerate the delivery of urgently needed targeted therapies.</p>
                 </div>
             </div>
+
+            <div class="recent-works" aria-labelledby="recent-works-title">
+                <div class="recent-works-header">
+                    <h3 id="recent-works-title">Recent Works</h3>
+                    <p>Latest publications from Google Scholar</p>
+                </div>
+                <div id="recent-works-grid" class="recent-works-grid" aria-live="polite">
+                    <article class="recent-work-card recent-work-card--loading">
+                        <p>Loading recent publications...</p>
+                    </article>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -113,104 +125,283 @@
         <div class="container">
             <div class="section-header">
                 <h2>Our Team</h2>
-                <p>Meet the researchers driving innovation and discovery</p>
             </div>
             <div class="team-photo-container">
                 <img src="media/team.JPG" alt="Menden Lab Team" class="team-group-photo">
             </div>
-            <div class="team-grid">
-                <div class="team-card featured">
-                    <div class="team-photo">
-                        <div class="photo-placeholder">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
+            <div class="spacer">
+                <p style="line-height: 1.5;"><br><br></p>
+            </div>
+            <div class="team-directory" data-enhance-profiles="true">
+                <div class="team-directory-header">
+                    <div class="team-featured">
+                        <div class="team-featured-photo">
+                            <div class="photo-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="team-featured-content">
+                            <h3 class="team-directory-title">A/Prof Michael Menden</h3>
+                            <p class="team-featured-role">Head of Laboratory</p>
+                            <a href="#" class="team-featured-link">Faculty Page</a>
                         </div>
                     </div>
-                    <div class="team-info">
-                        <h3>Dr. Michael Menden</h3>
-                        <p class="team-role">Principal Investigator</p>
-                        <p class="team-bio">Leading research in computational biology and machine learning applications for precision medicine.</p>
-                        <p class="team-bio">Leading research in computational biology and machine learning applications for precision medicine.</p>
-                        <p class="team-bio">Leading research in computational biology and machine learning applications for precision medicine.</p>
-                        <div class="team-links">
-                            <a href="#" title="Email">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                    <polyline points="22,6 12,13 2,6"></polyline>
-                                </svg>
-                            </a>
-                            <a href="#" title="GitHub">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
-                            </a>
-                            <a href="#" title="Google Scholar">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/>
-                                </svg>
-                            </a>
-                        </div>
+                    <div class="team-tabs" role="tablist" aria-label="Filter team members by role">
+                        <button class="team-tab is-active" type="button" role="tab" aria-selected="true" data-team-filter="all">All</button>
+                        <button class="team-tab" type="button" role="tab" aria-selected="false" data-team-filter="postdoc">Postdoc</button>
+                        <button class="team-tab" type="button" role="tab" aria-selected="false" data-team-filter="phd">PhD</button>
+                        <button class="team-tab" type="button" role="tab" aria-selected="false" data-team-filter="masters">Masters</button>
+                        <button class="team-tab" type="button" role="tab" aria-selected="false" data-team-filter="honours">Honours</button>
+                        <button class="team-tab" type="button" role="tab" aria-selected="false" data-team-filter="previous">Previous</button>
                     </div>
                 </div>
-
-                <div class="team-card">
-                    <div class="team-photo">
-                        <div class="photo-placeholder">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="team-info">
-                        <h3>PhD Student</h3>
-                        <p class="team-role">PhD Candidate</p>
-                        <p class="team-bio">Researching computational methods for analyzing single-cell genomics data.</p>
-                        <div class="team-links">
-                            <a href="#" title="Email">
+                <div class="team-grid" aria-live="polite">
+                    <article class="team-card" data-team-category="all postdoc">
+                        <div class="team-member-photo">
+                            <div class="photo-placeholder">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
                                 </svg>
-                            </a>
-                            <a href="#" title="GitHub">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
-                            </a>
+                            </div>
                         </div>
-                    </div>
+                        <div class="team-info">
+                            <h3>Dr Göksu Avar</h3>
+                            <p class="team-role">Postdoctoral Fellow</p>
+                        </div>
+                    </article>
+
+                    <article class="team-card" data-team-category="all phd">
+                        <div class="team-member-photo">
+                            <div class="photo-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Alina J Arneth</h3>
+                            <p class="team-role">PhD student</p>
+                        </div>
+                    </article>
+
+                    <article class="team-card" data-team-category="all phd">
+                        <div class="team-member-photo">
+                            <div class="photo-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Xixi Li</h3>
+                            <p class="team-role">PhD student</p>
+                        </div>
+                    </article>
+
+                    <article class="team-card" data-team-category="all phd">
+                        <div class="team-member-photo">
+                            <div class="photo-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Linpeng Xie</h3>
+                            <p class="team-role">PhD student</p>
+                        </div>
+                    </article>
+
+                    <article class="team-card" data-team-category="all phd">
+                        <div class="team-member-photo">
+                            <div class="photo-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Xuan Liu</h3>
+                            <p class="team-role">PhD student</p>
+                        </div>
+                    </article>
+
+                    <article class="team-card" data-team-category="all phd">
+                        <div class="team-member-photo">
+                            <div class="photo-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Qiyang Wu</h3>
+                            <p class="team-role">PhD student</p>
+                        </div>
+                    </article>
+
+                    <article class="team-card" data-team-category="all phd">
+                        <div class="team-member-photo">
+                            <div class="photo-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Daksh Pamar</h3>
+                            <p class="team-role">PhD student</p>
+                        </div>
+                    </article>
+
+                    <article class="team-card" data-team-category="all phd">
+                        <div class="team-member-photo">
+                            <div class="photo-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Wenjie Shan</h3>
+                            <p class="team-role">PhD student</p>
+                        </div>
+                    </article>
+
+                    <article class="team-card" data-team-category="all phd">
+                        <div class="team-member-photo">
+                            <div class="photo-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Chen Gong</h3>
+                            <p class="team-role">PhD student</p>
+                        </div>
+                    </article>
+
+                    <article class="team-card" data-team-category="all phd">
+                        <div class="team-member-photo">
+                            <div class="photo-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Anthony Basilone</h3>
+                            <p class="team-role">PhD student</p>
+                        </div>
+                    </article>
+
+                    <article class="team-card" data-team-category="all masters">
+                        <div class="team-member-photo">
+                            <div class="photo-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Liam Mcinerney</h3>
+                            <p class="team-role">Masters student</p>
+                        </div>
+                    </article>
+
+                    <article class="team-card" data-team-category="all masters">
+                        <div class="team-member-photo">
+                            <div class="photo-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h3>I Putu Prakasa Wiprayoga</h3>
+                            <p class="team-role">Masters student</p>
+                        </div>
+                    </article>
+
+                    <article class="team-card" data-team-category="all masters">
+                        <div class="team-member-photo">
+                            <div class="photo-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Keisuke Yasuda</h3>
+                            <p class="team-role">Masters student</p>
+                        </div>
+                    </article>
+
+                    <article class="team-card" data-team-category="all masters">
+                        <div class="team-member-photo">
+                            <div class="photo-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Jesamine Newman</h3>
+                            <p class="team-role">Masters student</p>
+                        </div>
+                    </article>
+
+                    <article class="team-card" data-team-category="all honours">
+                        <div class="team-member-photo">
+                            <div class="photo-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Yazhu Liu</h3>
+                            <p class="team-role">Honours student</p>
+                        </div>
+                    </article>
+
+                    <article class="team-card" data-team-category="all phd">
+                        <div class="team-member-photo">
+                            <div class="photo-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Nicolo Fabila</h3>
+                            <p class="team-role">PhD student</p>
+                        </div>
+                    </article>
                 </div>
-
-                <div class="team-card">
-                    <div class="team-photo">
-                        <div class="photo-placeholder">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="team-info">
-                        <h3>PhD Student</h3>
-                        <p class="team-role">PhD Candidate</p>
-                        <p class="team-bio">Working on interpretable AI for biomedical applications and clinical decision support.</p>
-                        <div class="team-links">
-                            <a href="#" title="Email">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                    <polyline points="22,6 12,13 2,6"></polyline>
-                                </svg>
-                            </a>
-                            <a href="#" title="GitHub">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
+                <p class="team-empty-state" hidden>No team members in this category yet.</p>
+                <div class="view-more mt-2">
+                    <a href="people.html" class="btn btn-outline">View Previous Members</a>
                 </div>
             </div>
         </div>
@@ -222,25 +413,22 @@
             <div class="apply-content">
                 <div class="apply-text">
                     <h2>Join Our Team</h2>
-                    <p class="apply-subtitle">We're always looking for talented and motivated PhD students to join our lab.</p>
+                    <p class="apply-subtitle">Opportunities are available for student applicants and potential collaborators to join our research activities.</p>
                     <div class="apply-positions">
                         <div class="position">
-                            <h3>Available Positions</h3>
+                            <h3>Available Opportunities</h3>
                             <ul>
                                 <li>
-                                    <strong>PhD Students</strong>
-                                    <p>We welcome applications from students interested in computational biology, machine learning, and bioinformatics. We are looking for motivated students who are passionate about interdisciplinary research at the intersection of computer science and life sciences.</p>
+                                    <strong>Who Can Apply</strong>
+                                    <p>This research project is available to PhD students, Masters by Research, Honours students, Master of Biomedical Science students, and postdoctoral researchers as part of their thesis or research training.</p>
                                 </li>
                             </ul>
                         </div>
                         <div class="qualifications">
-                            <h3>Ideal Candidates Have</h3>
+                            <h3>Collaborators Welcome</h3>
                             <ul>
-                                <li>Strong programming skills (Python, R, or similar)</li>
-                                <li>Background in biology, computer science, or related fields</li>
-                                <li>Experience with data analysis and machine learning</li>
-                                <li>Passion for interdisciplinary research</li>
-                                <li>Excellent communication and collaboration skills</li>
+                                <li>Potential collaborators interested in interdisciplinary projects are encouraged to reach out.</li>
+                                <li>Please contact the Research Group Leader to discuss your options.</li>
                             </ul>
                         </div>
                     </div>
@@ -248,7 +436,7 @@
                 <div class="apply-form">
                     <div class="form-card">
                         <h3>Get in Touch</h3>
-                        <p>Interested in joining our lab? Send an email to our Principal Investigator with your CV and research interests.</p>
+                        <p>Interested in applying or collaborating? Please email the Research Group Leader with your background and areas of interest.</p>
                         <div class="contact-info">
                             <div class="contact-item">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
