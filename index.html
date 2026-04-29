@@ -112,8 +112,21 @@
                 <h2>Featured Projects</h2>
                 <p>Open-source tools and research initiatives driving scientific discovery</p>
             </div>
-            <!-- GitHub Repository Widget Container -->
-            <div id="repo-container"></div>
+            <div class="projects-carousel" aria-label="Featured repositories from MendenLab">
+                <button class="projects-carousel-control projects-carousel-control--prev" type="button" aria-label="Previous featured project">
+                    &#8249;
+                </button>
+                <div class="projects-carousel-viewport">
+                    <div id="repo-container" class="projects-carousel-track" aria-live="polite">
+                        <article class="project-card project-card--loading">
+                            <p>Loading featured projects from GitHub...</p>
+                        </article>
+                    </div>
+                </div>
+                <button class="projects-carousel-control projects-carousel-control--next" type="button" aria-label="Next featured project">
+                    &#8250;
+                </button>
+            </div>
             <div class="view-more">
                 <a href="https://github.com/MendenLab" class="btn btn-outline" target="_blank">View All Projects on GitHub</a>
             </div>
@@ -155,7 +168,7 @@
                         <button class="team-tab" type="button" role="tab" aria-selected="false" data-team-filter="phd">PhD</button>
                         <button class="team-tab" type="button" role="tab" aria-selected="false" data-team-filter="masters">Masters</button>
                         <button class="team-tab" type="button" role="tab" aria-selected="false" data-team-filter="honours">Honours</button>
-                        <button class="team-tab" type="button" role="tab" aria-selected="false" data-team-filter="previous">Previous</button>
+                        <a class="team-tab" role="tab" aria-selected="false" href="people.html">View Previous Members</a>
                     </div>
                 </div>
                 <div class="team-grid" aria-live="polite">
@@ -400,9 +413,6 @@
                     </article>
                 </div>
                 <p class="team-empty-state" hidden>No team members in this category yet.</p>
-                <div class="view-more mt-2">
-                    <a href="people.html" class="btn btn-outline">View Previous Members</a>
-                </div>
             </div>
         </div>
     </section>
@@ -500,45 +510,6 @@
         </div>
     </footer>
 
-    <!-- GitHub Repo Widget -->
-    <script src="https://repowidget.vercel.app/assets/js/repoWidget.min.js"></script>
-    <script>
-        // Initialize GitHub Repository Widget
-        createRepoWidget({
-            username: "MendenLab",
-            containerId: "repo-container",
-            maxRepos: 8,
-            sortBy: "stars",
-            forked: false,
-            columns: {
-                mobile: 1,
-                tablet: 2,
-                desktop: 3
-            },
-            cardStyles: {
-                backgroundColor: '#FFFFFF',
-                borderRadius: '12px',
-                margin: '10px',
-                padding: '20px',
-                height: '100%'
-            },
-            textStyles: {
-                titleSize: '18px',
-                titleColor: '#000F46',
-                titleWeight: '500',
-                descriptionColor: '#616161',
-                descriptionSize: '14px',
-                iconColor: '#46C8F0'
-            },
-            scaleOnHover: 1.03,
-            onLoad: function(repos) {
-                console.log('MendenLab repositories loaded:', repos);
-            },
-            onError: function(error) {
-                console.error('Error loading repositories:', error);
-            }
-        });
-    </script>
     <script src="script.js"></script>
 </body>
 </html>

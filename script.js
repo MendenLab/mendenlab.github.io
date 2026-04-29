@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Research publications cards
     initRecentWorks();
+    initFeaturedProjectsCarousel();
 });
 
 // ==========================================
@@ -481,6 +482,129 @@ function escapeHtml(value) {
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#39;');
+}
+
+// ==========================================
+// Featured Projects Carousel
+// ==========================================
+async function initFeaturedProjectsCarousel() {
+    const track = document.querySelector('#repo-container');
+    const viewport = document.querySelector('.projects-carousel-viewport');
+    const prevBtn = document.querySelector('.projects-carousel-control--prev');
+    const nextBtn = document.querySelector('.projects-carousel-control--next');
+
+    if (!track || !viewport || !prevBtn || !nextBtn) return;
+
+    try {
+        const repos = await fetchFeaturedRepos();
+        renderProjectCards(track, repos);
+        initCarouselControls({ track, viewport, prevBtn, nextBtn });
+    } catch (error) {
+        console.error('Error loading repositories:', error);
+        track.innerHTML = `
+            <article class="project-card project-card--loading">
+                <p>Featured projects are temporarily unavailable.</p>
+            </article>
+        `;
+    }
+}
+
+async function fetchFeaturedRepos() {
+    const response = await fetch('https://api.github.com/orgs/MendenLab/repos?per_page=100&type=public&sort=updated', {
+        headers: {
+            Accept: 'application/vnd.github+json',
+        },
+    });
+
+    if (!response.ok) {
+        throw new Error(`GitHub API error: ${response.status}`);
+    }
+
+    const repos = await response.json();
+    const nonForked = repos.filter((repo) => !repo.fork);
+    const prioritized = nonForked.sort((a, b) => prioritizeRepo(a, b, 'DT-GPT'));
+    return prioritized.slice(0, 12);
+}
+
+function prioritizeRepo(a, b, prioritizedName) {
+    const aIsPriority = a.name.toLowerCase() === prioritizedName.toLowerCase();
+    const bIsPriority = b.name.toLowerCase() === prioritizedName.toLowerCase();
+
+    if (aIsPriority && !bIsPriority) return -1;
+    if (bIsPriority && !aIsPriority) return 1;
+    return (b.stargazers_count || 0) - (a.stargazers_count || 0);
+}
+
+function renderProjectCards(container, repos) {
+    if (!repos.length) {
+        container.innerHTML = `
+            <article class="project-card project-card--loading">
+                <p>No featured repositories found.</p>
+            </article>
+        `;
+        return;
+    }
+
+    container.innerHTML = repos
+        .map((repo) => {
+            const name = escapeHtml(repo.name);
+            const description = escapeHtml(repo.description || 'No description available yet.');
+            const language = escapeHtml(repo.language || 'Unknown');
+            const stars = Number(repo.stargazers_count || 0).toLocaleString();
+            const forks = Number(repo.forks_count || 0).toLocaleString();
+            const repoUrl = repo.html_url;
+            const homepageUrl = repo.homepage || '';
+            return `
+                <article class="project-card">
+                    <div class="project-header">
+                        <h3>${name}</h3>
+                        <div class="project-tags">
+                            <span class="tag">${language}</span>
+                        </div>
+                    </div>
+                    <p class="project-description">${description}</p>
+                    <div class="project-stats">
+                        <div class="stat" aria-label="${stars} stars">
+                            <span>★</span>
+                            <span>${stars}</span>
+                        </div>
+                        <div class="stat" aria-label="${forks} forks">
+                            <span>⑂</span>
+                            <span>${forks}</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a class="project-link" href="${repoUrl}" target="_blank" rel="noopener noreferrer">View in GitHub</a>
+                        ${homepageUrl ? `<a class="project-link project-link-secondary" href="${homepageUrl}" target="_blank" rel="noopener noreferrer">Landing page</a>` : ''}
+                    </div>
+                </article>
+            `;
+        })
+        .join('');
+}
+
+function initCarouselControls({ track, viewport, prevBtn, nextBtn }) {
+    const scrollStep = () => Math.max(viewport.clientWidth * 0.85, 280);
+
+    const updateControls = () => {
+        const maxScrollLeft = track.scrollWidth - viewport.clientWidth;
+        const atStart = track.scrollLeft <= 5;
+        const atEnd = track.scrollLeft >= maxScrollLeft - 5;
+        prevBtn.disabled = atStart;
+        nextBtn.disabled = atEnd;
+    };
+
+    prevBtn.addEventListener('click', () => {
+        track.scrollBy({ left: -scrollStep(), behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', () => {
+        track.scrollBy({ left: scrollStep(), behavior: 'smooth' });
+    });
+
+    track.addEventListener('scroll', updateControls);
+    window.addEventListener('resize', updateControls);
+    updateControls();
 }
 
 // ==========================================
