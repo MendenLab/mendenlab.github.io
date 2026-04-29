@@ -459,7 +459,7 @@ svg {
 
 .research-focus {
     padding: 5rem 0;
-    background-color: #FFFFFF;
+    background-color: #FCFEFF;
 }
 
 .mission-statement {
@@ -538,13 +538,19 @@ svg {
 }
 
 .recent-works {
-    margin-top: 3rem;
+    margin-top: 0;
+}
+
+.recent-works-section {
+    padding: 5rem 0;
+    background-color: #F7FBFF;
 }
 
 .recent-works-header {
     margin-bottom: 1.5rem;
 }
 
+.recent-works-header h2,
 .recent-works-header h3 {
     color: var(--md-sys-color-primary);
     font-size: 1.9rem;
@@ -560,6 +566,11 @@ svg {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.25rem;
+}
+
+.recent-works-footer {
+    margin-top: 1.5rem;
+    text-align: center;
 }
 
 .recent-work-card {
@@ -657,7 +668,7 @@ svg {
 
 .projects {
     padding: 5rem 0;
-    background-color: #F9F9F9;
+    background-color: #F3F7FB;
 }
 
 .projects-carousel {
@@ -865,7 +876,7 @@ svg {
 
 .team {
     padding: 5rem 0;
-    background-color: #F1F1F1;
+    background-color: #EEF3F8;
 }
 
 .team-photo-container {
