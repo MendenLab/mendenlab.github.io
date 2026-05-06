@@ -320,13 +320,18 @@ function initTeamTabs() {
 // ==========================================
 async function initRecentWorks() {
     const container = document.querySelector('#recent-works-grid');
+    const viewport = document.querySelector('.recent-works-carousel-viewport');
+    const prevBtn = document.querySelector('.recent-works-carousel-control--prev');
+    const nextBtn = document.querySelector('.recent-works-carousel-control--next');
     if (!container) return;
 
     try {
         const source = await loadPublicationsTsSource();
         const publications = parsePublicationsFromTs(source);
-        const latestPublications = getLatestPublications(publications, 4);
-        renderRecentWorks(container, latestPublications);
+        renderRecentWorks(container, publications);
+        if (viewport && prevBtn && nextBtn) {
+            initCarouselControls({ track: container, viewport, prevBtn, nextBtn, stepRatio: 1 });
+        }
     } catch (error) {
         console.error(error);
         const isFileProtocol = window.location.protocol === 'file:';
@@ -338,6 +343,8 @@ async function initRecentWorks() {
                 <p>${message}</p>
             </article>
         `;
+        if (prevBtn) prevBtn.disabled = true;
+        if (nextBtn) nextBtn.disabled = true;
     }
 }
 
@@ -366,43 +373,27 @@ async function loadPublicationsTsSource() {
 }
 
 function parsePublicationsFromTs(source) {
-    const match = source.match(/export\s+const\s+publications(?:\s*:\s*Publication\[\])?\s*=\s*(\[[\s\S]*?\]);/);
+    const match = source.match(/export\s+const\s+publications(?:\s*:\s*Publication\[\])?\s*=\s*(\[[\s\S]*\]);/);
     if (!match?.[1]) return [];
 
     try {
-        return JSON.parse(match[1]);
+        // The file is hand-edited TypeScript: unquoted keys, // comments,
+        // trailing commas. Evaluate the array literal as JavaScript instead
+        // of using JSON.parse, which only accepts strict JSON.
+        const factory = new Function(`"use strict"; return (${match[1]});`);
+        const value = factory();
+        return Array.isArray(value) ? value : [];
     } catch (error) {
         console.error('Failed to parse publications.ts content:', error);
         return [];
     }
 }
 
-function getLatestPublications(publications, limit = 4) {
-    if (!Array.isArray(publications)) return [];
-
-    return publications
-        .map((publication, index) => ({ publication, index }))
-        .sort((a, b) => {
-            const yearA = Number.parseInt(a.publication?.year, 10);
-            const yearB = Number.parseInt(b.publication?.year, 10);
-            const normalizedYearA = Number.isFinite(yearA) ? yearA : -Infinity;
-            const normalizedYearB = Number.isFinite(yearB) ? yearB : -Infinity;
-
-            if (normalizedYearA !== normalizedYearB) {
-                return normalizedYearB - normalizedYearA;
-            }
-
-            return a.index - b.index;
-        })
-        .slice(0, limit)
-        .map((entry) => entry.publication);
-}
-
 function renderRecentWorks(container, publications) {
     if (!publications.length) {
         container.innerHTML = `
             <article class="recent-work-card recent-work-card--loading">
-                <p>No publications found. Run sync-publications.mjs to populate this section.</p>
+                <p>No publications found. Edit publications.ts to populate this section.</p>
             </article>
         `;
         return;
@@ -417,17 +408,27 @@ function renderRecentWorks(container, publications) {
             const safeYear = escapeHtml(publication.year || '');
             const safeLink = publication.scholarUrl || '#';
             const authors = highlightMemberAuthors(publication.citation || '', memberSurnames);
+            const hasImage = Boolean(publication.image);
+            const safeImage = hasImage ? escapeHtml(publication.image) : '';
+            const safeImageAlt = escapeHtml(publication.imageAlt || `Figure for ${publication.title || 'publication'}`);
+            const cardModifier = hasImage ? '' : ' recent-work-card--no-image';
+            const mediaMarkup = hasImage
+                ? `<div class="recent-work-media"><img src="${safeImage}" alt="${safeImageAlt}" loading="lazy" /></div>`
+                : '';
 
             return `
-                <article class="recent-work-card">
-                    <p class="recent-work-year">${safeYear}</p>
-                    <h4 class="recent-work-title">${safeTitle}</h4>
-                    <p class="recent-work-journal">${safeJournal}</p>
-                    <p class="recent-work-authors">${authors}</p>
-                    <p class="recent-work-abstract">${safeSummary}</p>
-                    <a class="recent-work-link" href="${safeLink}" target="_blank" rel="noopener noreferrer">
-                        View on Google Scholar
-                    </a>
+                <article class="recent-work-card${cardModifier}">
+                    <div class="recent-work-content">
+                        <p class="recent-work-year">${safeYear}</p>
+                        <h4 class="recent-work-title">${safeTitle}</h4>
+                        <p class="recent-work-journal">${safeJournal}</p>
+                        <p class="recent-work-authors">${authors}</p>
+                        <p class="recent-work-abstract">${safeSummary}</p>
+                        <a class="recent-work-link" href="${safeLink}" target="_blank" rel="noopener noreferrer">
+                            See paper
+                        </a>
+                    </div>
+                    ${mediaMarkup}
                 </article>
             `;
         })
@@ -583,8 +584,8 @@ function renderProjectCards(container, repos) {
         .join('');
 }
 
-function initCarouselControls({ track, viewport, prevBtn, nextBtn }) {
-    const scrollStep = () => Math.max(viewport.clientWidth * 0.85, 280);
+function initCarouselControls({ track, viewport, prevBtn, nextBtn, stepRatio = 0.85 }) {
+    const scrollStep = () => Math.max(viewport.clientWidth * stepRatio, 280);
 
     const updateControls = () => {
         const maxScrollLeft = track.scrollWidth - viewport.clientWidth;
@@ -722,7 +723,7 @@ function throttle(func, limit) {
 }
 
 // ==========================================
-// Console Message (Fun Easter Egg)
+// Console Message 
 // ==========================================
 
 console.log(
